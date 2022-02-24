@@ -6,7 +6,7 @@ pipeline {
 	}
 
 	stages{
-		stage("build"){
+		stage(build){
 			when{
 				changeset "**/worker/**"
 			}
@@ -19,7 +19,7 @@ pipeline {
 			}
 
 		}
-		stage("test"){
+		stage(test){
 			when{
 				changeset "**/worker/**"
 			}
@@ -32,7 +32,7 @@ pipeline {
 			}
 		}
 
-		stage("package"){
+		stage(package){
 			when{
 				branch 'main'
 				changeset "**/worker/**"
@@ -51,6 +51,13 @@ pipeline {
 	post{
 		always{
 			echo 'Building multibranch pipeline for worker is completed..'
+		}
+		
+		failure {
+			slackSend (channel: "chuck-dev", message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+		}
+		success {
+			slackSend (channel: "chuck-dev", message: "Build Succeeded - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
 		}
 	}
 }
