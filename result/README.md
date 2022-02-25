@@ -3,7 +3,5 @@
 
 # Build Status
 
-
-[![Build Status](http://52.149.138.52:8080/buildStatus/icon?job=instavote%2Fresult-build&subject=Build)](http://52.149.138.52:8080/job/instavote/job/result-build/)
-[![Build Status](http://52.149.138.52:8080/buildStatus/icon?job=instavote%2Fresult-test&subject=Test)](http://52.149.138.52:8080/job/instavote/job/result-test/)
+[![Build Status](http://52.149.138.52:8080/buildStatus/icon?job=instavote%2Fresult-pipe%2Ffeature%252Fresultpipe&subject=result-pipeline)](http://52.149.138.52:8080/job/instavote/job/result-pipe/job/feature%252Fresultpipe/)
 
