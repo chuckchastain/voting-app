@@ -36,7 +36,7 @@ pipeline {
 
 		stage(package){
 			when{
-				branch 'main'
+//				branch 'main'
 				changeset "**/worker/**"
 			}
 
