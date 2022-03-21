@@ -8,7 +8,7 @@ pipeline {
 //	}
 
 	stages{
-		stage(worker build){
+		stage('worker build'){
 			agent{
 				docker{
 					image 'maven:3.6.1-jdk-8-slim'
@@ -27,7 +27,7 @@ pipeline {
 			}
 
 		}
-		stage(worker test){
+		stage('worker test'){
 			agent{
 				docker{
 					image 'maven:3.6.1-jdk-8-slim'
@@ -46,7 +46,7 @@ pipeline {
 			}
 		}
 
-		stage(worker package){
+		stage('worker package'){
 			agent{
 				docker{
 					image 'maven:3.6.1-jdk-8-slim'
@@ -87,7 +87,7 @@ pipeline {
 		}
 
 
-		stage(result build){
+		stage('result build'){
 			agent{
 				docker{
 					image 'node:8.16.0-alpine'
@@ -106,7 +106,7 @@ pipeline {
 			}
 
 		}
-		stage(result test){
+		stage('result test'){
 			agent{
 				docker{
 					image 'node:8.16.0-alpine'
@@ -145,7 +145,7 @@ pipeline {
 			}
 		}
 
-		stage(vote build){
+		stage('vote build'){
 			agent{
 				docker{
 					image 'python:2.7.16-slim'
@@ -164,7 +164,7 @@ pipeline {
 			}
 
 		}
-		stage(vote test){
+		stage('vote test'){
 			agent{
 				docker{
 					image 'python:2.7.16-slim'
